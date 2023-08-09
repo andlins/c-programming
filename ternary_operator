@@ -1,0 +1,30 @@
+// Program to compare two numbers (x and y) using if-else or a ternary operator, and return a value 
+
+#include <stdio.h>
+
+// using if-else in C
+int compare(int x, int y)
+{
+    if(x >= y)
+    {
+        return (10*x + y);
+    }
+    else return (y*y);
+}
+
+// using the ternary operator in C
+// Sintaxe
+// condition ? value_if_true : value_if_false
+int ternary_compare(int x, int y)
+{
+    return(x >= y) ? 10*x + y : y*y;
+}
+
+int main()
+{
+    int n1 = 1, n2 =10;
+    printf("\n %d --> Resulting by if-else!", compare(n1,n2));
+    printf("\n %d --> Resulting by ternary operator!", ternary_compare(n1,n2));
+
+    return 0;
+}
