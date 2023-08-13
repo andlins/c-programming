@@ -1,0 +1,76 @@
+// program to test if a number is prime
+#include <stdio.h>
+#include <stdbool.h>
+#import <math.h>
+
+bool isPrime(int n)
+{
+    int result = 0;
+    for( int i = 2; i<=n/2; i++){
+        if(n%i == 0){
+            result ++;
+            break;
+        }
+    } 
+    
+    if(result == 0){
+        printf("%d eh um numero primo!", n);
+        return true;
+    }else{
+         printf("%d nao eh um numero primo!", n);
+        return false;    
+    }
+}
+
+// alternative form
+// testing divisibility by 2 and odd numbers less than the square root only
+bool isPrimeAlt(int n)
+{
+    printf("\nForma alternativa: \n");
+    int result;
+    if(n%2 == 0)
+    {
+        printf("\n%d nao eh um numero primo!", n);
+        return false;
+    }
+    for(int i = 3; i <= (int)sqrt(n); i++)
+    {
+        if(n%i == 0){
+            result ++;
+            break;
+        }
+        i++;
+    }
+    
+    if(result == 0){
+        printf("\n%d eh um numero primo!", n);
+        return true;
+    }else{
+         printf("\n%d nao eh um numero primo!", n);
+        return false;    
+    }
+}
+
+int readNumber(){
+    int n;
+    printf("\nDigite um numero inteiro: ");
+    scanf("%d", &n);
+    
+    return n;
+}
+
+int main() {
+    int num = readNumber();
+    
+    while(!isPrime(num)){
+        isPrimeAlt(num);
+        num = readNumber();
+    }
+    isPrimeAlt(num);
+    printf("\nFim!");
+    
+    
+     // imprimir todos os números primos anteriores a num.
+    
+    return 0;
+}
